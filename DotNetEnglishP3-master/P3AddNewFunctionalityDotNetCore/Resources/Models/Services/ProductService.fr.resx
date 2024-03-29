@@ -130,12 +130,12 @@
     <value>La valeur saisie pour le prix doit être un nombre</value>
   </data>
   <data name="PriceNotGreaterThanZero" xml:space="preserve">
-    <value>La prix doit être supérieur à zéro</value>
+    <value>Le prix doit être supérieur à zéro</value>
   </data>
   <data name="StockNotAnInteger" xml:space="preserve">
     <value>La valeur saisie pour le stock doit être un entier</value>
   </data>
   <data name="StockNotGreaterThanZero" xml:space="preserve">
-    <value>La stock doit être supérieure à zéro</value>
+    <value>Le stock doit être supérieure à zéro</value>
   </data>
 </root>
