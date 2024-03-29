@@ -6,20 +6,30 @@
 
 <div asp-validation-summary="All" class="text-danger"></div>
 <form asp-action="Create" method="post">
-    <div class="mb-3 col-6">
-        <label>@Localizer["Name"]*:</label><input asp-for="Name" class="form-control" />
+    <div class="mb-3 col-6 form-group">
+        <label>@Localizer["Name"]*:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-    <div class="mb-3 col-4">
-        <label>@Localizer["Price"]*:</label><input asp-for="Price" class="form-control" />
+    <div class="mb-3 col-4 form-group">
+        <label>@Localizer["Price"]*:</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-    <div class="mb-3 col-8">
-        <label>@Localizer["Description"]:</label><input asp-for="Description" class="form-control" />
+    <div class="mb-3 col-8 form-group">
+        <label>@Localizer["Description"]:</label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-    <div class="mb-3 col-4">
-        <label>@Localizer["Stock"]*:</label><input asp-for="Stock" type="text" class="form-control" />
+    <div class="mb-3 col-4 form-group">
+        <label>@Localizer["Stock"]*:</label>
+        <input asp-for="Stock" type="text" class="form-control" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
     </div>
-    <div class="mb-3col-8">
-        <label>@Localizer["Details"]:</label><input asp-for="Details" class="form-control" />
+    <div class="mb-3 col-8 form-group">
+        <label>@Localizer["Details"]:</label>
+        <input asp-for="Details" class="form-control" />
+        <span asp-validation-for="Details" class="text-danger"></span>
     </div>
     <div class="text-center">
         <input class="btn btn-primary" type="submit" value="@Localizer["OK"]" />
