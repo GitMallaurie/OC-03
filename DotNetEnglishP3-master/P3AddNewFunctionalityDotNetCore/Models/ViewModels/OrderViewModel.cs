@@ -13,19 +13,19 @@ namespace P3AddNewFunctionalityDotNetCore.Models.ViewModels
         [BindNever]
         public ICollection<CartLine> Lines { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingName")]
+        [Required(ErrorMessageResourceName = "ErrorMissingName", ErrorMessageResourceType = typeof(Resources.Order))]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingAddress")]
+        [Required(ErrorMessageResourceName = "ErrorMissingAddress", ErrorMessageResourceType = typeof(Resources.Order))]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingCity")]
+        [Required(ErrorMessageResourceName = "ErrorMissingCity", ErrorMessageResourceType = typeof(Resources.Order))]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingZipCode")]
+        [Required(ErrorMessageResourceName = "ErrorMissingZipCode", ErrorMessageResourceType = typeof(Resources.Order))]
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingCountry")]
+        [Required(ErrorMessageResourceName = "ErrorMissingCountry", ErrorMessageResourceType = typeof(Resources.Order))]
         public string Country { get; set; }
 
         [BindNever]
