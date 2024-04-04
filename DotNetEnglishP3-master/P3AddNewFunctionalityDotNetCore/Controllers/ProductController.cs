@@ -40,12 +40,7 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
         [HttpPost]
         public IActionResult Create(ProductViewModel product)
         {
-            List<string> modelErrors = _productService.CheckProductModelErrors(product);           
-
-            foreach (string error in modelErrors)
-            {
-                ModelState.AddModelError("", error);
-            }
+            product.Price = product.Price.Replace(',', '.');
 
             if (ModelState.IsValid)
             {
@@ -54,6 +49,15 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
             }
             else
             {
+                // Check if there is PriceForValidation errors
+                if (ModelState.TryGetValue("PriceForValidation", out var priceForValidationResults) && priceForValidationResults.Errors.Count > 0)
+                {
+                    // Transfert errors from PriceForValidation to Price
+                    foreach (var error in priceForValidationResults.Errors)
+                    {
+                        ModelState.AddModelError("Price", error.ErrorMessage);
+                    }
+                }
                 return View(product);
             }
         }
