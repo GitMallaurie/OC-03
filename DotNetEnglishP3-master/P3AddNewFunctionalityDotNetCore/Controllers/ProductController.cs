@@ -4,6 +4,7 @@ using P3AddNewFunctionalityDotNetCore.Models.Services;
 using P3AddNewFunctionalityDotNetCore.Models.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace P3AddNewFunctionalityDotNetCore.Controllers
 {
@@ -38,13 +39,13 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(ProductViewModel product)
+        public async Task<IActionResult> Create(ProductViewModel product)
         {
             product.Price = product.Price.Replace(',', '.');
 
             if (ModelState.IsValid)
             {
-                _productService.SaveProduct(product);
+                await _productService.SaveProduct(product);
                 return RedirectToAction("Admin");
             }
             else
