@@ -90,11 +90,22 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Services
             }
         }
 
-        public void SaveProduct(ProductViewModel product)
+        public async Task SaveProduct(ProductViewModel product)
         {
-            var productToAdd = MapToProductEntity(product);
-            _productRepository.SaveProduct(productToAdd);
+            var existingProduct = await _productRepository.FindProductByNameAsync(product.Name);
+
+            if (existingProduct != null)
+            {
+                existingProduct.Quantity += Convert.ToInt32(product.Stock);
+                await _productRepository.UpdateProduct(existingProduct);
+            }
+            else
+            {
+                var productToAdd = MapToProductEntity(product);
+                await _productRepository.SaveProduct(productToAdd);
+            }
         }
+
 
         private static Product MapToProductEntity(ProductViewModel product)
         {
