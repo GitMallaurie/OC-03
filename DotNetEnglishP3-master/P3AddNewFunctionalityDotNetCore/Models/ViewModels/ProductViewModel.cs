@@ -54,13 +54,14 @@ namespace P3AddNewFunctionalityDotNetCore.Models.ViewModels
         {
             get
             {
-                var priceString = Price.Replace(',', '.');
-
-                if (double.TryParse(priceString, NumberStyles.Any, CultureInfo.InvariantCulture, out double price))
+                try
                 {
-                    return price;
+                    return Convert.ToDouble(Price.Replace(',', '.'), CultureInfo.InvariantCulture);
                 }
-                return 0;
+                catch
+                {
+                    return 0;
+                }
             }
         }
 
