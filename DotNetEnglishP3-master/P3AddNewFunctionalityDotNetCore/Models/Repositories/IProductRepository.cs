@@ -8,8 +8,10 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Repositories
     {
         IEnumerable<Product> GetAllProducts();
         void UpdateProductStocks(int productId, int quantityToRemove);
-        void SaveProduct(Product product);
+        Task SaveProduct(Product product);
         void DeleteProduct(int id);
+        Task<Product> FindProductByNameAsync(string name);
+        Task<Product> UpdateProduct(Product product);
         Task<Product> GetProduct(int id);
         Task<IList<Product>> GetProduct();
     }

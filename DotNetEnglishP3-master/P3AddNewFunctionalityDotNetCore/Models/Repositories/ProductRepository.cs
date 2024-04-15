@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using P3AddNewFunctionalityDotNetCore.Data;
 using P3AddNewFunctionalityDotNetCore.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,18 +54,35 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Repositories
             }   
         }
 
-        public void SaveProduct(Product product)
+        public async Task SaveProduct(Product product)
         {
             if (product != null)
             {
-               
-
-                _context.Product.Add(product);
-                _context.SaveChanges();
+                    await _context.Product.AddAsync(product);
+                    await _context.SaveChangesAsync();        
             }
         }
 
-  
+        public async Task<Product> FindProductByNameAsync(string name)
+        {
+            try
+            {
+                return await _context.Product.FirstOrDefaultAsync(n => n.Name == name);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public async Task<Product> UpdateProduct(Product product)
+        {
+            _context.Product.Update(product);
+            _context.SaveChanges();
+
+            return product;
+        }
 
         public void DeleteProduct(int id)
         {
