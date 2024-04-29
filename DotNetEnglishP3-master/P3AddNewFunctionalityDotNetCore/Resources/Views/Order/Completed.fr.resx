@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DemoEnding" xml:space="preserve">
-    <value>Nous nous occupons de votre commande. La démo est terminée, cliquez sur le logo pour recommencer.</value>
+    <value>Nous nous occupons de votre commande. Cliquez sur le logo pour retourner à la liste des produits.</value>
   </data>
   <data name="Thanks" xml:space="preserve">
     <value>Merci!</value>
